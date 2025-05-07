@@ -471,7 +471,7 @@ class PHPExcel_Cell_DataValidation
             $this->error .
             $this->promptTitle .
             $this->prompt .
-            __CLASS__
+            self::class
         );
     }
 

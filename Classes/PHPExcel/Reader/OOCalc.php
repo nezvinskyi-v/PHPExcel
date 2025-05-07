@@ -466,7 +466,7 @@ class PHPExcel_Reader_OOCalc extends PHPExcel_Reader_Abstract implements PHPExce
                             }
                         case 'table-row':
                             $rowDataTableAttributes = $rowData->attributes($namespacesContent['table']);
-                            $rowRepeats = (isset($rowDataTableAttributes['number-rows-repeated'])) ? $rowDataTableAttributes['number-rows-repeated'] : 1;
+                            $rowRepeats = $rowDataTableAttributes['number-rows-repeated'] ?? 1;
                             $columnID = 'A';
                             foreach ($rowData as $key => $cellData) {
                                 if ($this->getReadFilter() !== null) {
@@ -628,7 +628,7 @@ class PHPExcel_Reader_OOCalc extends PHPExcel_Reader_Abstract implements PHPExce
 //                                    echo 'Adjusted Formula: ', $cellDataFormula, PHP_EOL;
                                 }
 
-                                $colRepeats = (isset($cellDataTableAttributes['number-columns-repeated'])) ? $cellDataTableAttributes['number-columns-repeated'] : 1;
+                                $colRepeats = $cellDataTableAttributes['number-columns-repeated'] ?? 1;
                                 if ($type !== null) {
                                     for ($i = 0; $i < $colRepeats; ++$i) {
                                         if ($i > 0) {

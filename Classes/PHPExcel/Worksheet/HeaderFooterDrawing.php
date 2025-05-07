@@ -340,7 +340,7 @@ class PHPExcel_Worksheet_HeaderFooterDrawing extends PHPExcel_Worksheet_Drawing 
             $this->offsetY .
             $this->width .
             $this->height .
-            __CLASS__
+            self::class
         );
     }
 

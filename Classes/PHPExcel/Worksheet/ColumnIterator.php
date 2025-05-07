@@ -111,7 +111,7 @@ class PHPExcel_Worksheet_ColumnIterator implements Iterator
      */
     public function resetEnd($endColumn = null)
     {
-        $endColumn = ($endColumn) ? $endColumn : $this->subject->getHighestColumn();
+        $endColumn = $endColumn ?: $this->subject->getHighestColumn();
         $this->endColumn = PHPExcel_Cell::columnIndexFromString($endColumn) - 1;
 
         return $this;

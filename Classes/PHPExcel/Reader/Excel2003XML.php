@@ -95,7 +95,7 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
         $valid = true;
         foreach ($signature as $match) {
             // every part of the signature must be present
-            if (strpos($data, $match) === false) {
+            if (strpos($data, (string) $match) === false) {
                 $valid = false;
                 break;
             }
@@ -401,7 +401,7 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
             $style_ss = $style->attributes($namespaces['ss']);
             $styleID = (string) $style_ss['ID'];
 //            echo 'Style ID = '.$styleID.'<br />';
-            $this->styles[$styleID] = (isset($this->styles['Default'])) ? $this->styles['Default'] : array();
+            $this->styles[$styleID] = $this->styles['Default'] ?? array();
             foreach ($style as $styleType => $styleData) {
                 $styleAttributes = $styleData->attributes($namespaces['ss']);
 //                echo $styleType.'<br />';
@@ -689,7 +689,7 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
                                                     $rowReference = $rowID;
                                                 }
                                                 //    Bracketed R references are relative to the current row
-                                                if ($rowReference{0} == '[') {
+                                                if ($rowReference[0] == '[') {
                                                     $rowReference = $rowID + trim($rowReference, '[]');
                                                 }
                                                 $columnReference = $cellReference[4][0];
@@ -698,7 +698,7 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
                                                     $columnReference = $columnNumber;
                                                 }
                                                 //    Bracketed C references are relative to the current column
-                                                if ($columnReference{0} == '[') {
+                                                if ($columnReference[0] == '[') {
                                                     $columnReference = $columnNumber + trim($columnReference, '[]');
                                                 }
                                                 $A1CellReference = PHPExcel_Cell::stringFromColumnIndex($columnReference-1).$rowReference;

@@ -423,7 +423,7 @@ class PHPExcel_Style_Borders extends PHPExcel_Style_Supervisor implements PHPExc
             $this->getBottom()->getHashCode() .
             $this->getDiagonal()->getHashCode() .
             $this->getDiagonalDirection() .
-            __CLASS__
+            self::class
         );
     }
 }

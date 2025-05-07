@@ -378,7 +378,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
         return md5(
             $this->formatCode .
             $this->builtInFormatCode .
-            __CLASS__
+            self::class
         );
     }
 

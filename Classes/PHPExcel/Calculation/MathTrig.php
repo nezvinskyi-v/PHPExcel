@@ -95,8 +95,8 @@ class PHPExcel_Calculation_MathTrig
         $xCoordinate = PHPExcel_Calculation_Functions::flattenSingleValue($xCoordinate);
         $yCoordinate = PHPExcel_Calculation_Functions::flattenSingleValue($yCoordinate);
 
-        $xCoordinate = ($xCoordinate !== null) ? $xCoordinate : 0.0;
-        $yCoordinate = ($yCoordinate !== null) ? $yCoordinate : 0.0;
+        $xCoordinate ??= 0.0;
+        $yCoordinate ??= 0.0;
 
         if (((is_numeric($xCoordinate)) || (is_bool($xCoordinate))) &&
             ((is_numeric($yCoordinate)))  || (is_bool($yCoordinate))) {

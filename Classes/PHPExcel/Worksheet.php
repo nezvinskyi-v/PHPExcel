@@ -1865,7 +1865,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
     public function unprotectCellsByColumnAndRow($pColumn1 = 0, $pRow1 = 1, $pColumn2 = 0, $pRow2 = 1, $pPassword = '', $pAlreadyHashed = false)
     {
         $cellRange = PHPExcel_Cell::stringFromColumnIndex($pColumn1) . $pRow1 . ':' . PHPExcel_Cell::stringFromColumnIndex($pColumn2) . $pRow2;
-        return $this->unprotectCells($cellRange, $pPassword, $pAlreadyHashed);
+        return $this->unprotectCells($cellRange);
     }
 
     /**
@@ -2645,7 +2645,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
     public function getHashCode()
     {
         if ($this->dirty) {
-            $this->hash = md5($this->title . $this->autoFilter . ($this->protection->isProtectionEnabled() ? 't' : 'f') . __CLASS__);
+            $this->hash = md5($this->title . $this->autoFilter . ($this->protection->isProtectionEnabled() ? 't' : 'f') . self::class);
             $this->dirty = false;
         }
         return $this->hash;

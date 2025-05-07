@@ -360,7 +360,7 @@ class PHPExcel_Worksheet_AutoFilter
     {
         $dataSet = $ruleSet['filterRules'];
         $join = $ruleSet['join'];
-        $customRuleForBlanks = isset($ruleSet['customRuleForBlanks']) ? $ruleSet['customRuleForBlanks'] : false;
+        $customRuleForBlanks = $ruleSet['customRuleForBlanks'] ?? false;
 
         if (!$customRuleForBlanks) {
             //    Blank cells are always ignored, so return a FALSE
@@ -717,7 +717,7 @@ class PHPExcel_Worksheet_AutoFilter
                             );
                         } else {
                             //    Date based
-                            if ($dynamicRuleType{0} == 'M' || $dynamicRuleType{0} == 'Q') {
+                            if ($dynamicRuleType[0] == 'M' || $dynamicRuleType[0] == 'Q') {
                                 //    Month or Quarter
                                 sscanf($dynamicRuleType, '%[A-Z]%d', $periodType, $period);
                                 if ($periodType == 'M') {

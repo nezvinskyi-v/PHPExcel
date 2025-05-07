@@ -276,7 +276,7 @@ class PHPExcel_Style_Border extends PHPExcel_Style_Supervisor implements PHPExce
         return md5(
             $this->borderStyle .
             $this->color->getHashCode() .
-            __CLASS__
+            self::class
         );
     }
 }

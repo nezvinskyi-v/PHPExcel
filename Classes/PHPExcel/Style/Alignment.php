@@ -458,7 +458,7 @@ class PHPExcel_Style_Alignment extends PHPExcel_Style_Supervisor implements PHPE
             ($this->shrinkToFit ? 't' : 'f') .
             $this->indent .
             $this->readorder .
-            __CLASS__
+            self::class
         );
     }
 }

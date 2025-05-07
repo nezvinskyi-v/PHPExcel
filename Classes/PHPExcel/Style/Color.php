@@ -437,7 +437,7 @@ class PHPExcel_Style_Color extends PHPExcel_Style_Supervisor implements PHPExcel
         }
         return md5(
             $this->argb .
-            __CLASS__
+            self::class
         );
     }
 }

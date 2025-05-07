@@ -537,7 +537,7 @@ class PHPExcel_Style_Font extends PHPExcel_Style_Supervisor implements PHPExcel_
             $this->underline .
             ($this->strikethrough ? 't' : 'f') .
             $this->color->getHashCode() .
-            __CLASS__
+            self::class
         );
     }
 }

@@ -126,7 +126,7 @@ class PHPExcel_Worksheet_Drawing extends PHPExcel_Worksheet_BaseDrawing implemen
         return md5(
             $this->path .
             parent::getHashCode() .
-            __CLASS__
+            self::class
         );
     }
 

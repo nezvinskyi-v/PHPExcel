@@ -99,7 +99,7 @@ class PHPExcel_Worksheet_RowCellIterator extends PHPExcel_Worksheet_CellIterator
      */
     public function resetEnd($endColumn = null)
     {
-        $endColumn = ($endColumn) ? $endColumn : $this->subject->getHighestColumn();
+        $endColumn = $endColumn ?: $this->subject->getHighestColumn();
         $this->endColumn = PHPExcel_Cell::columnIndexFromString($endColumn) - 1;
         $this->adjustForExistingOnlyRange();
 

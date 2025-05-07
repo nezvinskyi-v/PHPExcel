@@ -198,7 +198,7 @@ class PHPExcel_Style_Protection extends PHPExcel_Style_Supervisor implements PHP
         return md5(
             $this->locked .
             $this->hidden .
-            __CLASS__
+            self::class
         );
     }
 }

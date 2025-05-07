@@ -118,7 +118,7 @@ class PHPExcel_Cell_Hyperlink
         return md5(
             $this->url .
             $this->tooltip .
-            __CLASS__
+            self::class
         );
     }
 }

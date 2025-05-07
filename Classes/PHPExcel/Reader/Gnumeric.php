@@ -694,7 +694,7 @@ class PHPExcel_Reader_Gnumeric extends PHPExcel_Reader_Abstract implements PHPEx
                     $column = $columnAttributes['No'];
                     $columnWidth = $columnAttributes['Unit']  / 5.4;
                     $hidden = ((isset($columnAttributes['Hidden'])) && ($columnAttributes['Hidden'] == '1')) ? true : false;
-                    $columnCount = (isset($columnAttributes['Count'])) ? $columnAttributes['Count'] : 1;
+                    $columnCount = $columnAttributes['Count'] ?? 1;
                     while ($c < $column) {
                         $objPHPExcel->getActiveSheet()->getColumnDimension(PHPExcel_Cell::stringFromColumnIndex($c))->setWidth($defaultWidth);
                         ++$c;
@@ -724,7 +724,7 @@ class PHPExcel_Reader_Gnumeric extends PHPExcel_Reader_Abstract implements PHPEx
                     $row = $rowAttributes['No'];
                     $rowHeight = $rowAttributes['Unit'];
                     $hidden = ((isset($rowAttributes['Hidden'])) && ($rowAttributes['Hidden'] == '1')) ? true : false;
-                    $rowCount = (isset($rowAttributes['Count'])) ? $rowAttributes['Count'] : 1;
+                    $rowCount = $rowAttributes['Count'] ?? 1;
                     while ($r < $row) {
                         ++$r;
                         $objPHPExcel->getActiveSheet()->getRowDimension($r)->setRowHeight($defaultHeight);

@@ -307,7 +307,7 @@ class PHPExcel_Comment implements PHPExcel_IComparable
             ($this->visible ? 1 : 0) .
             $this->fillColor->getHashCode() .
             $this->alignment .
-            __CLASS__
+            self::class
         );
     }
 

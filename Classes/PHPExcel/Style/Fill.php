@@ -316,7 +316,7 @@ class PHPExcel_Style_Fill extends PHPExcel_Style_Supervisor implements PHPExcel_
             $this->getRotation() .
             $this->getStartColor()->getHashCode() .
             $this->getEndColor()->getHashCode() .
-            __CLASS__
+            self::class
         );
     }
 }

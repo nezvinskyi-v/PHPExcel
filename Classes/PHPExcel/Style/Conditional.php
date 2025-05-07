@@ -272,7 +272,7 @@ class PHPExcel_Style_Conditional implements PHPExcel_IComparable
             $this->operatorType .
             implode(';', $this->condition) .
             $this->style->getHashCode() .
-            __CLASS__
+            self::class
         );
     }
 

@@ -967,7 +967,7 @@ class PHPExcel_Shared_JAMA_Matrix
                         }
                         return $C;
                     } else {
-                        throw new PHPExcel_Calculation_Exception(JAMAError(MatrixDimensionMismatch));
+                        throw new PHPExcel_Calculation_Exception(JAMAError(\MATRIXDIMENSIONMISMATCH));
                     }
                     break;
                 case 'array':
@@ -985,7 +985,7 @@ class PHPExcel_Shared_JAMA_Matrix
                         }
                         return $C;
                     } else {
-                        throw new PHPExcel_Calculation_Exception(JAMAError(MatrixDimensionMismatch));
+                        throw new PHPExcel_Calculation_Exception(JAMAError(\MATRIXDIMENSIONMISMATCH));
                     }
                     return $M;
                     break;

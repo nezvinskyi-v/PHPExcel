@@ -127,13 +127,13 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
         //    The files we're looking at here are small enough that simpleXML is more efficient than XMLReader
         $rels = simplexml_load_string(
-            $this->securityScan($this->getFromZipArchive($zip, "_rels/.rels"), 'SimpleXMLElement', PHPExcel_Settings::getLibXmlLoaderOptions())
+            $this->securityScan($this->getFromZipArchive($zip, "_rels/.rels"))
         ); //~ http://schemas.openxmlformats.org/package/2006/relationships");
         foreach ($rels->Relationship as $rel) {
             switch ($rel["Type"]) {
                 case "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument":
                     $xmlWorkbook = simplexml_load_string(
-                        $this->securityScan($this->getFromZipArchive($zip, "{$rel['Target']}"), 'SimpleXMLElement', PHPExcel_Settings::getLibXmlLoaderOptions())
+                        $this->securityScan($this->getFromZipArchive($zip, "{$rel['Target']}"))
                     );  //~ http://schemas.openxmlformats.org/spreadsheetml/2006/main");
 
                     if ($xmlWorkbook->sheets) {
@@ -1597,7 +1597,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                                 $newRangeSets = array();
                                                 foreach ($rangeSets as $rangeSet) {
                                                     $range = explode('!', $rangeSet);    // FIXME: what if sheetname contains exclamation mark?
-                                                    $rangeSet = isset($range[1]) ? $range[1] : $range[0];
+                                                    $rangeSet = $range[1] ?? $range[0];
                                                     if (strpos($rangeSet, ':') === false) {
                                                         $rangeSet = $rangeSet . ':' . $rangeSet;
                                                     }
@@ -1672,7 +1672,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
                                         // Modify range
                                         $range = explode('!', $extractedRange);
-                                        $extractedRange = isset($range[1]) ? $range[1] : $range[0];
+                                        $extractedRange = $range[1] ?? $range[0];
                                     }
 
                                     if ($locatedSheet !== null) {
@@ -1999,7 +1999,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
 
     private static function getArrayItem($array, $key = 0)
     {
-        return (isset($array[$key]) ? $array[$key] : null);
+        return ($array[$key] ?? null);
     }
 
     private static function dirAdd($base, $add)

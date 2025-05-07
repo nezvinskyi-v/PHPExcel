@@ -98,7 +98,7 @@ class PHPExcel_Worksheet_ColumnCellIterator extends PHPExcel_Worksheet_CellItera
      */
     public function resetEnd($endRow = null)
     {
-        $this->endRow = ($endRow) ? $endRow : $this->subject->getHighestRow();
+        $this->endRow = $endRow ?: $this->subject->getHighestRow();
         $this->adjustForExistingOnlyRange();
 
         return $this;

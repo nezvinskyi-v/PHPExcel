@@ -82,18 +82,18 @@ foreach($years as $year) {
 					$period,
 					$i
 				);
-				$value = rand(500,1000) * (1 + rand(-0.25,+0.25));
+				$value = random_int(500,1000) * (1 + random_int(-0.25,+0.25));
 				$salesValue = $invoiceValue = NULL;
-				$incomeOrExpenditure = rand(-1,1);
+				$incomeOrExpenditure = random_int(-1,1);
 				if ($incomeOrExpenditure == -1) {
-					$expenditure = rand(-500,-1000) * (1 + rand(-0.25,+0.25));
+					$expenditure = random_int(-1000, -500) * (1 + random_int(-0.25,+0.25));
 					$income = NULL;
 				} elseif ($incomeOrExpenditure == 1) {
-					$expenditure = rand(-500,-1000) * (1 + rand(-0.25,+0.25));
-					$income = rand(500,1000) * (1 + rand(-0.25,+0.25));;
+					$expenditure = random_int(-1000, -500) * (1 + random_int(-0.25,+0.25));
+					$income = random_int(500,1000) * (1 + random_int(-0.25,+0.25));;
 				} else {
 					$expenditure = NULL;
-					$income = rand(500,1000) * (1 + rand(-0.25,+0.25));;
+					$income = random_int(500,1000) * (1 + random_int(-0.25,+0.25));;
 				}
 				$dataArray = array(	$year,
 									$period,

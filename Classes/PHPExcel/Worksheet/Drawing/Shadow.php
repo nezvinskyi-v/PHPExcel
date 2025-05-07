@@ -275,7 +275,7 @@ class PHPExcel_Worksheet_Drawing_Shadow implements PHPExcel_IComparable
             $this->alignment .
             $this->color->getHashCode() .
             $this->alpha .
-            __CLASS__
+            self::class
         );
     }
 

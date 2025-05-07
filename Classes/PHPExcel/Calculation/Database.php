@@ -64,7 +64,7 @@ class PHPExcel_Calculation_Database
             return $keys[$field-1];
         }
         $key = array_search($field, $fieldNames);
-        return ($key) ? $key : null;
+        return $key ?: null;
     }
 
     /**

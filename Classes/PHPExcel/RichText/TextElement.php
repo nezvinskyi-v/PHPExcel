@@ -84,7 +84,7 @@ class PHPExcel_RichText_TextElement implements PHPExcel_RichText_ITextElement
     {
         return md5(
             $this->text .
-            __CLASS__
+            self::class
         );
     }
 
